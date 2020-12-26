@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Diabetes Diagnosis Tool</title>
-  </head>
-  <body>
-    {% extends "template.html" %}
+    {% extends "templateb.html" %}
+
     {% set active_page = "diagnose" %}
+
     {% block content %}
 
     <h2> Diabetes Status Diagnosis </h2>
@@ -29,6 +24,5 @@
     </form>
 
     {{ data }}
+
     {% endblock %}
-  </body>
-</html>
