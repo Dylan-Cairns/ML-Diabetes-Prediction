@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+   <meta charset="utf-8">
+   <title>Flask Parent Template</title>
+   <link rel="stylesheet" href="{{ url_for('static',     filename='style.css') }}">
+ </head>
+ <body>
+    <header>
+        <nav>
+            <ul class="topnav">
+                <li><img src="{{ url_for('static', filename='logo.png') }}" width="40" height="40" style="margin: 15px; margin-right: 40px"/></li>
+              <li class="{{'active' if active_page == 'home' }}"><a href="{{ url_for('home') }}">Home</a></li>
+              <li class="{{'active' if active_page == 'diagnose' }}"><a href="{{ url_for('diagnose') }}">Diagnosis</a></li>
+              <li class="{{'active' if active_page == 'data' }}"><a href="{{ url_for('data') }}">Data Visualization</a></li>
+              <li {% if active_page =='about' %} class="active right" {% else %} class="right" {% endif %}><a href="{{ url_for('about') }}">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="container">
+        <div id="content">
+    {% block content %}
+    {% endblock %}
+        </div>
+
+    </div>
+ </body>
+</html>

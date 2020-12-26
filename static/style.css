@@ -1,0 +1,112 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 15px;
+  line-height: 30px;
+  color: black;
+  background: rgb(208,243,255);
+  background: linear-gradient(150deg, rgba(208,243,255,1) 36%, rgba(204,159,249,1) 100%) fixed;
+}
+
+h2 {
+    color: #081c15;
+    display: block;
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 35px
+}
+
+#submit[type="submit"] {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #2c7da0;
+  color: white;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+#submit[type="submit"]:hover {
+  background: #468faf;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#submit[type="submit"]:active {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+#container {
+   margin: 0 auto;
+   max-width: 900px;
+}
+
+#content {
+  background: #FFFFFF;
+  border-radius: 0px;
+  padding: 40px;
+  margin: 0px;
+  margin-top: 80px;
+  /*font-family: "Times New Roman", Times, serif;*/
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2)
+}
+
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul.topnav li:not(.active) a:hover {
+    border-bottom: 2px solid #468faf;
+}
+
+ul.topnav li.active {
+    border-bottom: 2px solid #2c7da0
+    }
+
+ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 600px) {
+  ul.topnav li.right,
+  ul.topnav li {float: none;}
+}
+
+@media screen and (min-width: 600px) {
+  .nav li {
+    width: 120px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+}
