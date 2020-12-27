@@ -1,28 +1,39 @@
-    {% extends "templateb.html" %}
+{% extends "templateb.html" %}
 
-    {% set active_page = "diagnose" %}
+{% set active_page = "diagnose" %}
 
-    {% block content %}
+{% block content %}
 
-    <h2> Diabetes Status Diagnosis </h2>
-
-    <form action="" method="post">
-      {{ form.csrf_token }}
+<h2> Diabetes Status Diagnosis </h2>
+<br>
+<form action="" method="post">
+    <div class="mb-3">
+        {{ form.csrf_token }}
         <p>
-          {% for subfield in form.gender %}
-          <tr>
-            <td>{{ subfield }}</td>
-            <td>{{ subfield.label }}</td>
-          </tr>
-          {% endfor %}
+            {% for subfield in form.gender %}
+            <tr>
+                <td>{{ subfield(class_="form-check-input") }}</td>
+                <td>{{ subfield.label(class_="form-check-label") }}</td>
+            </tr>
+            {% endfor %}
         </p>
-        <p>{{ form.polyuria() }} {{ form.polyuria.label }}</p>
-        <p>{{ form.polydipsia() }} {{ form.polydipsia.label }}</p>
-        <p>{{ form.sudden_wl() }} {{ form.sudden_wl.label }}</p>
-        <p>{{ form.obesity() }} {{ form.obesity.label }}</p><br>
-        <p>{{ form.submit() }}</p>
-    </form>
+        <p>{{ form.polyuria(class_="form-check-input") }} {{ form.polyuria.label(class_="form-check-label") }}</p>
+        <p>{{ form.polydipsia(class_="form-check-input") }} {{ form.polydipsia.label(class_="form-check-label") }}</p>
+        <p>{{ form.sudden_wl(class_="form-check-input") }} {{ form.sudden_wl.label(class_="form-check-label") }}</p>
+        <p>{{ form.obesity(class_="form-check-input") }} {{ form.obesity.label(class_="form-check-label") }}</p>
+    </div>
+    <p>{{ form.submit(class_="btn btn-primary") }}</p>
+</form>
 
-    {{ data }}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for msgs in messages %}
+<div class="alert alert-primary" role="alert">
+    {{msgs}}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
 
-    {% endblock %}
+
+{% endblock %}
