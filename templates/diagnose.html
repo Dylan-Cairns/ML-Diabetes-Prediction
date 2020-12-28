@@ -1,4 +1,4 @@
-{% extends "templateb.html" %}
+{% extends "template.html" %}
 
 {% set active_page = "diagnose" %}
 
@@ -22,12 +22,14 @@
         <p>{{ form.sudden_wl(class_="form-check-input") }} {{ form.sudden_wl.label(class_="form-check-label") }}</p>
         <p>{{ form.obesity(class_="form-check-input") }} {{ form.obesity.label(class_="form-check-label") }}</p>
     </div>
+    <br>
     <p>{{ form.submit(class_="btn btn-primary") }}</p>
 </form>
 
 {% with messages = get_flashed_messages() %}
 {% if messages %}
 {% for msgs in messages %}
+<br>
 <div class="alert alert-primary" role="alert">
     {{msgs}}
 </div>
