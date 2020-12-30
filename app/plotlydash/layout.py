@@ -1,3 +1,6 @@
+"""Plotly Dash HTML layout override."""
+
+html_layout = """
 <!doctype html>
 <html lang="en" class="h-100">
 <head>
@@ -11,28 +14,42 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ url_for('static',     filename='style.css') }}">
+    <link rel="stylesheet" href="/static/style.css">
 
-    {% if request.path == '/diagnose' %}
-    <!-- Jquery, loaded only on diagnosis page -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(function() {
-            $('#diagnosis').delay(0).fadeIn('normal', function() {
-                $(this).delay(2500);
-            });
-        });
-    </script>
-    {% endif %}
-    <title>{{title}}</title>
+    <title>Data + Visualizations</title>
 </head>
 <body class="d-flex flex-column h-100 body">
-{% include 'navbar.html' %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="#"><span class="fa fa-medkit"></span> ML Diabetes Diagnosis</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link " href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/diagnose">Diagnosis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Data + Visualizations</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/about">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <main role="main" class="flex-shrink-0">
     <br><br>
     <div class="container" id="main-content">
-        {% block content %}
-        {% endblock content %}
+
+    <h2> Data Visualization </h2>
+    <br>
+            {%app_entry%}
     </div>
     <br><br>
 </main>
@@ -47,9 +64,13 @@
             </div>
         </div>
     </div>
+                {%config%}
+                {%scripts%}
+                {%renderer%}
 </footer>
 <!-- bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
 </body>
 </html>
+"""

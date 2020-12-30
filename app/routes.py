@@ -1,6 +1,6 @@
-from flask import render_template, flash, Markup
+from flask import render_template, flash, Markup, current_app as app
 import numpy
-from app import app, model
+from app import model
 from app.forms import DiagnoseForm
 
 
@@ -19,11 +19,17 @@ def diagnose():
         sudden_wl = form.sudden_wl.data
         obesity = form.obesity.data
         features = [gender, polyuria, polydipsia, sudden_wl, obesity]
-        prediction = 'Positive' if model.predict([features]) else 'Negative' # Convert boolean to string
+        prediction = 'Positive' if model.predict([features]) else 'Negative'  # Convert boolean to string
         accuracy = round((numpy.max(model.predict_proba([features])) / 1), 2)
-        flash(Markup(render_template("diagnosisresult.html", prediction=prediction, accuracy=accuracy)))
-        return render_template("diagnose.html", form=form, title='Diagnose')
-    return render_template("diagnose.html", form=form, title='Diagnose')
+        flash(Markup(render_template("diagnosisresult.html",
+                                     prediction=prediction,
+                                     accuracy=accuracy)))
+        return render_template("diagnose.html",
+                               form=form,
+                               title='Diagnose')
+    return render_template("diagnose.html",
+                           form=form,
+                           title='Diagnose')
 
 
 @app.route("/data")

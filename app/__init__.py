@@ -2,14 +2,23 @@ from flask import Flask
 from config import Config
 import pickle
 
-# start application
-app = Flask(__name__)
 
-# import configuration
-app.config.from_object(Config)
+# Construct core Flask application.
+def init_app():
+    app = Flask(__name__)
+    # import configuration
+    app.config.from_object(Config)
+    with app.app_context():
+        # Import parts of our core Flask app
+        from . import routes
+
+        # Import Dash application
+        from .plotlydash.dashboard import init_dashboard
+        app = init_dashboard(app)
+
+        return app
+
 
 # load machine learning model
 model = pickle.load(open('app/static/rf_model.pkl', 'rb'))
-
-from app import routes
 
