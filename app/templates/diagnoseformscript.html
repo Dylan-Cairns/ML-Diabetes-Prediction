@@ -1,7 +1,11 @@
 <script>
     $(document).ready(function() {
-        $('form').submit(function (e) {
+        $('#diagnosis-form').submit(function (e) {
+
+            e.preventDefault(); // block the traditional submission of the form.
+
             var url = "{{ url_for('diagnosis') }}"; // send the form data here.
+
             $.ajax({
                 type: "POST",
                 url: url,
@@ -12,7 +16,6 @@
                   }).fadeIn('slow');
                 }
             });
-            e.preventDefault(); // block the traditional submission of the form.
         });
 
         // Inject our CSRF token into our AJAX request.

@@ -16,6 +16,14 @@
                 {{ subfield.label(class_="form-check-label") }}
             </div>
             {% endfor %}
+
+            {% if form.gender.errors %}
+                <ul class="errors">
+                {% for error in form.gender.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
         </div>
         <div class="row">
             <div class="form-check mb-3 col-md-3">

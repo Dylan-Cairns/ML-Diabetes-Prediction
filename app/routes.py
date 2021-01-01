@@ -1,7 +1,7 @@
 from flask import render_template, flash, Markup, request, current_app as app, jsonify
 import numpy
 from app import model
-from app.forms import DiagnoseForm, TestForm
+from app.forms import DiagnoseForm
 
 
 @app.route("/", methods=['GET', 'POST'])
