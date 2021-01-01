@@ -7,8 +7,8 @@
 <h2>Diabetes Status Diagnosis </h2>
 <br>
 <div class="container">
-    <form action="" method="post">
-        {{ form.csrf_token }}
+    <form action="" id="diagnosis-form" method="post">
+        {{ form.hidden_tag() }}
         <div class="row">
             {% for subfield in form.gender %}
             <div class="form-check mb-3 col-sm-3">
@@ -45,18 +45,13 @@
             </div>
         </div>
     </form>
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-{% for msgs in messages %}
+
 <br>
-<div id="diagnosis">
-<div class="alert alert-primary" role="alert">
-    {{msgs}}
-</div>
-</div>
-{% endfor %}
-{% endif %}
-{% endwith %}
+
+<div class="alert alert-primary" id="diagnosis-result" role="alert"></div>
+
+
 
 </div>
+
 {% endblock %}

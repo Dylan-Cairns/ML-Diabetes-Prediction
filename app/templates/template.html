@@ -13,9 +13,10 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static',     filename='style.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    {% if ((request.path == '/diagnose') or (request.path == '/diagnosis')) %}
+    <!-- Jquery, loaded only on diagnosis page -->
     {% include 'diagnoseformscript.html' %}
-
+    {% endif %}
     <title>{{title}}</title>
 </head>
 <body class="d-flex flex-column h-100 body">

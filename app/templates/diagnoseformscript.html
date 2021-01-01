@@ -1,14 +1,14 @@
 <script>
     $(document).ready(function() {
         $('form').submit(function (e) {
-            var url = "{{ url_for('test1') }}"; // send the form data here.
+            var url = "{{ url_for('diagnosis') }}"; // send the form data here.
             $.ajax({
                 type: "POST",
                 url: url,
                 data: $('form').serialize(), // serializes the form's elements.
                 success: function (data) {
-                  $('#diagnosis').fadeOut('fast', () => {
-                      $('#diagnosis').text(data);
+                  $('#diagnosis-result').fadeOut('fast', () => {
+                      $('#diagnosis-result').html("Prediction diagnoses: <strong>" + data.prediction + "</strong><br> Prediction accuracy: <strong>" + data.accuracy + "</strong>");
                   }).fadeIn('slow');
                 }
             });

@@ -12,6 +12,3 @@ class DiagnoseForm(FlaskForm):
     sudden_wl = BooleanField('Sudden Weight Loss')
     obesity = BooleanField('Obesity')
     submit = SubmitField('Get result')
-
-class TestForm(FlaskForm):
-    foo = StringField('foo')
