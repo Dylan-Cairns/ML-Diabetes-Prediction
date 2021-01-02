@@ -19,15 +19,15 @@
     {% endif %}
     <title>{{title}}</title>
 </head>
-<body class="d-flex flex-column h-100 body">
+<body class="d-flex flex-column h-100 body" id="{{'homepage' if active_page == 'home' }}">
 {% include 'navbar.html' %}
 <main role="main" class="flex-shrink-0">
-    <br><br>
-    <div class="container" id="main-content">
+
+
         {% block content %}
         {% endblock content %}
-    </div>
-    <br><br>
+
+
 </main>
 <footer class="footer mt-auto py-3">
     <div class="container">

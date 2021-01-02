@@ -1,13 +1,15 @@
-    {% extends "template.html" %}
+{% extends "template.html" %}
 
-    {% set active_page = "about" %}
+{% set active_page = "about" %}
 
-    {% block content %}
-
+{% block content %}
+<br><br>
+<div class="container" id="main-content">
     <h2> About Flask </h2>
     <br>
     <p> Flask is a micro web framework written in Python.</p>
     <p> Applications that use the Flask framework include Pinterest,
-      LinkedIn, and the community web page for Flask itself.</p>
-
-    {% endblock %}
+        LinkedIn, and the community web page for Flask itself.</p>
+</div>
+<br><br>
+{% endblock %}

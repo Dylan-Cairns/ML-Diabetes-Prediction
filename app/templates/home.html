@@ -1,11 +1,38 @@
-    {% extends "template.html" %}
+{% extends "template.html" %}
 
-    {% set active_page = "home" %}
+{% set active_page = "home" %}
 
-    {% block content %}
-
-    <h2> Machine Learning Diabetes Diagnosis Prediction </h2>
-    <br>
-    <p>Let me tell you all about it. There is so much to tell!</p>
-
-    {% endblock %}
+{% block content %}
+<div class="jumbotron" id="jumbotron">
+    <div class="container">
+        <br><br><br>
+        <h3 class="display-3">Machine learning diagnosis Prediction</h3>
+        <p>This site offers an example of using a machine learning model to provide a quick prediction of diabetes diagnosis.</p>
+    <br><br>
+    </div>
+</div>
+<div class="container-fluid">
+    <br><br><br>
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Make a prediction</h2>
+                <p> Make a prediction utilizing a trained machine learning model. </p>
+                <p><a class="btn btn-secondary" href="{{ url_for('diagnose') }}" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>View the data</h2>
+                <p>View the data used to train the model, as well as relevant visualizations </p>
+                <p><a class="btn btn-secondary" href="/dashapp/" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Learn how it was made</h2>
+                <p>Read a summary of the process used to train the machine learning model.</p>
+                <p><a class="btn btn-secondary" href="{{ url_for('about') }}" role="button">View details &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+</div>
+{% endblock %}
