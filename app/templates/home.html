@@ -3,36 +3,43 @@
 {% set active_page = "home" %}
 
 {% block content %}
-<div class="jumbotron" id="jumbotron">
+<div class="jumbotron fadeIn" id="jumbotron">
     <div class="container">
         <br><br><br>
         <h3 class="display-3">Machine learning diagnosis Prediction</h3>
         <p>This site offers an example of using a machine learning model to provide a quick prediction of diabetes diagnosis.</p>
-    <br><br>
+        <br><br>
     </div>
 </div>
-<div class="container-fluid">
-    <br><br><br>
+<div class="album py-5">
     <div class="container">
         <!-- Example row of columns -->
         <div class="row">
-            <div class="col-md-4">
-                <h2>Make a prediction</h2>
-                <p> Make a prediction utilizing a trained machine learning model. </p>
-                <p><a class="btn btn-secondary" href="{{ url_for('diagnose') }}" role="button">View details &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2>View the data</h2>
-                <p>View the data used to train the model, as well as relevant visualizations </p>
-                <p><a class="btn btn-secondary" href="/dashapp/" role="button">View details &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2>Learn how it was made</h2>
-                <p>Read a summary of the process used to train the machine learning model.</p>
-                <p><a class="btn btn-secondary" href="{{ url_for('about') }}" role="button">View details &raquo;</a></p>
-            </div>
+            <div class="col-md-4 fadeInUp">
+                <div class="card mb-4 shadow">
+                    <div class="card-body">
+                        <h4>Make a prediction</h4>
+                        <p> Make a prediction utilizing a trained machine learning model. </p>
+                        <p><a class="btn btn-secondary" href="{{ url_for('diagnose') }}" role="button">View details &raquo;</a></p>
+                    </div>
+                </div></div>
+            <div class="col-md-4 fadeInUp first">
+                <div class="card mb-4 shadow">
+                    <div class="card-body">
+                        <h4>View the data</h4>
+                        <p>View the data used to train the model, as well as relevant visualizations </p>
+                        <p><a class="btn btn-secondary" href="/dashapp/" role="button">View details &raquo;</a></p>
+                    </div>
+                </div></div>
+            <div class="col-md-4 fadeInUp second">
+                <div class="card mb-4 shadow">
+                    <div class="card-body">
+                        <h4>Learn how it was made</h4>
+                        <p>Read a summary of the process used to train the machine learning model.</p>
+                        <p><a class="btn btn-secondary" href="{{ url_for('about') }}" role="button">View details &raquo;</a></p>
+                    </div>
+                </div></div>
         </div>
     </div>
-    <br><br><br><br>
 </div>
 {% endblock %}
