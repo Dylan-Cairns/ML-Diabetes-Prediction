@@ -6,14 +6,10 @@
   background: white;
 }
 
-#main-content {
-  background: white;
-}
-
 /* hide result div initially */
 #diagnosis-result { display:none; }
 
-
+/* animations */
 .fadeInUp {
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
