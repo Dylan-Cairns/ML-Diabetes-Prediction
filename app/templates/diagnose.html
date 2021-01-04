@@ -3,7 +3,6 @@
 {% set active_page = "diagnose" %}
 
 {% block content %}
-<br>
 <div class="container shadow rounded fadeIn p-5 my-5 bg-white">
     <h2>Diabetes Status Diagnosis </h2>
     <br>
@@ -12,7 +11,7 @@
             {{ form.hidden_tag() }}
             <div class="row">
                 {% for subfield in form.gender %}
-                <div class="form-check mb-3 col-sm-3">
+                <div class="form-check mb-4 col-sm-3">
                     {{ subfield(class_="form-check-input") }}
                     {{ subfield.label(class_="form-check-label") }}
                 </div>
@@ -27,17 +26,63 @@
                 {% endif %}
             </div>
             <div class="row">
-                <div class="form-check mb-3 col-md-3">
+                <div class="form-check mb-4 col-md-3">
                     {{ form.polyuria(class_="form-check-input") }}
                     {{ form.polyuria.label(class_="form-check-label") }}
                 </div>
-                <div class="form-check mb-3 col-md-3">
+                <div class="form-check mb-4 col-md-3">
                     {{ form.polydipsia(class_="form-check-input") }}
                     {{ form.polydipsia.label(class_="form-check-label") }}
                 </div>
-                <div class="form-check mb-3 col-md-3">
+                <div class="form-check mb-4 col-md-3">
                     {{ form.sudden_wl(class_="form-check-input") }}
                     {{ form.sudden_wl.label(class_="form-check-label") }}
+                </div>
+                <div class="form-check mb-4 col-md-3">
+                    {{ form.weakness(class_="form-check-input") }}
+                    {{ form.weakness.label(class_="form-check-label") }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-check mb-4 col-md-3">
+                    {{ form.polyphagia(class_="form-check-input") }}
+                    {{ form.polyphagia.label(class_="form-check-label") }}
+                </div>
+                <div class="form-check mb-4 col-md-3">
+                    {{ form.genital_thrush(class_="form-check-input") }}
+                    {{ form.genital_thrush.label(class_="form-check-label") }}
+                </div>
+                <div class="form-check mb-4 col-md-3">
+                    {{ form.visual_blurring(class_="form-check-input") }}
+                    {{ form.visual_blurring.label(class_="form-check-label") }}
+                </div>
+                <div class="form-check mb-4 col-md-3">
+                    {{ form.itching(class_="form-check-input") }}
+                    {{ form.itching.label(class_="form-check-label") }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-check mb-4 col-md-3">
+                    {{ form.irritability(class_="form-check-input") }}
+                    {{ form.irritability.label(class_="form-check-label") }}
+                </div>
+                <div class="form-check mb-4 col-md-3">
+                    {{ form.delayed_healing(class_="form-check-input") }}
+                    {{ form.delayed_healing.label(class_="form-check-label") }}
+                </div>
+                <div class="form-check mb-4 col-md-3">
+                    {{ form.partial_paresis(class_="form-check-input") }}
+                    {{ form.partial_paresis.label(class_="form-check-label") }}
+                </div>
+                <div class="form-check mb-4 col-md-3">
+                    {{ form.muscle_stiffness(class_="form-check-input") }}
+                    {{ form.muscle_stiffness.label(class_="form-check-label") }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-check mb-4 col-md-3">
+                    {{ form.alopecia(class_="form-check-input") }}
+                    {{ form.alopecia.label(class_="form-check-label") }}
                 </div>
                 <div class="form-check mb-4 col-md-3">
                     {{ form.obesity(class_="form-check-input") }}
@@ -47,7 +92,7 @@
             <div class="row">
                 <div class="col">
                 </div>
-                <div class="mb-3 col-12">
+                <div class="my-4 col-12">
                     {{ form.submit(class_="btn-primary form-control") }}
                 </div>
                 <div class="col">

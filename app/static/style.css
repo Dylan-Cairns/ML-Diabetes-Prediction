@@ -3,13 +3,15 @@
 }
 
 #jumbotron {
-  background: white;
+  background-image: url('static/ai_background.jpeg');
+  background-size: auto 200px;
+  background: #eee;
 }
 
-/* hide result div initially */
+/* hide result div initially, required for fade effects */
 #diagnosis-result { display:none; }
 
-/* animations */
+/* page load animations */
 .fadeInUp {
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
@@ -63,15 +65,15 @@
 
 .fadeIn {
   opacity:0;
-  -webkit-animation:fadeIn ease-in 0.5s;
-  -moz-animation:fadeIn ease-in 0.5s;
-  animation:fadeIn ease-in 0.5s;
+  -webkit-animation:fadeIn ease-in 1s;
+  -moz-animation:fadeIn ease-in 1s;
+  animation:fadeIn ease-in 1s;
 
   -webkit-animation-fill-mode:forwards;
   -moz-animation-fill-mode:forwards;
   animation-fill-mode:forwards;
 
-  -webkit-animation-duration:0.5ss;
-  -moz-animation-duration:0.5s;
-  animation-duration:0.5s;
+  -webkit-animation-duration:1ss;
+  -moz-animation-duration:1s;
+  animation-duration:1s;
 }

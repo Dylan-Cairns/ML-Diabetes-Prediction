@@ -21,13 +21,11 @@ def diagnose():
 def diagnosis():
     form = DiagnoseForm()
     if form.validate_on_submit():
-        gender = (form.gender.data == 'True') # Convert boolean to string
-        polyuria = form.polyuria.data
-        polydipsia = form.polydipsia.data
-        sudden_wl = form.sudden_wl.data
-        obesity = form.obesity.data
-        features = [gender, polyuria, polydipsia, sudden_wl, obesity]
-        prediction = 'Positive' if model.predict([features]) else 'Negative'  # Convert boolean to string
+        formDict = form.data
+        formDict.pop('csrf_token')
+        formDict['gender'] = (formDict['gender'] == 'True') # Convert string to boolean
+        features = formDict.values() # create list to pass as argument to prediction function
+        prediction = 'Positive' if model.predict(features) else 'Negative' # Convert boolean result to string
         accuracy = "{:.2f}".format(round((numpy.max(model.predict_proba([features])) / 1), 2))
         results = {'prediction': prediction,
                    'accuracy': accuracy}
