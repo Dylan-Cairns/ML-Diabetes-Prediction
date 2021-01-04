@@ -20,7 +20,7 @@ html_layout = """
     <title>Data + Visualizations</title>
 </head>
 <body class="d-flex flex-column h-100 body">
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient shadow">
     <div class="container">
         <a class="navbar-brand" href="#"><span class="fa fa-medkit"></span> ML Diabetes Diagnosis</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
