@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, RadioField, SubmitField
-from wtforms.validators import InputRequired
+from wtforms import BooleanField, RadioField, IntegerField, SubmitField
+from wtforms.validators import InputRequired, NumberRange
 
 
 class FieldsRequiredForm(FlaskForm):
@@ -15,6 +15,7 @@ class FieldsRequiredForm(FlaskForm):
 
 
 class DiagnoseForm(FieldsRequiredForm):
+    age = IntegerField('Age', validators=[InputRequired(), NumberRange(min=1, max=140, message='Please enter a valid age')])
     gender = RadioField('Label', choices=[(True, 'Male'), (False, 'Female')], validators=[InputRequired()])
     polyuria = BooleanField('Polyuria')
     polydipsia = BooleanField('Polydipsia')
@@ -22,7 +23,6 @@ class DiagnoseForm(FieldsRequiredForm):
     weakness = BooleanField('Weakness')
     polyphagia = BooleanField('Polyphagia')
     genital_thrush = BooleanField('Gential Thrush')
-    visual_blurring = BooleanField('Visual Blurring')
     itching = BooleanField('Itching')
     irritability = BooleanField('Irritability')
     delayed_healing = BooleanField('Delayed Healing')

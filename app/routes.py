@@ -24,9 +24,11 @@ def diagnosis():
         formDict = form.data
         formDict.pop('csrf_token')
         formDict['gender'] = (formDict['gender'] == 'True') # Convert string to boolean
-        features = formDict.values() # create list to pass as argument to prediction function
-        prediction = 'Positive' if model.predict(features) else 'Negative' # Convert boolean result to string
-        accuracy = "{:.2f}".format(round((numpy.max(model.predict_proba([features])) / 1), 2))
+        features = list(formDict.values()) # create list to pass as argument to prediction function
+        print(features)
+        print(model.predict(*features))
+        prediction = 'Positive' if model.predict(*features) else 'Negative' # Convert boolean result to string
+        accuracy = "{:.2f}".format(round((numpy.max(model.predict_proba(*features)) / 1), 2))
         results = {'prediction': prediction,
                    'accuracy': accuracy}
         return results
