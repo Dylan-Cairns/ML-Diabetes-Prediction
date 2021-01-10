@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, RadioField, IntegerField, SubmitField
-from wtforms.validators import InputRequired, NumberRange
+from wtforms.validators import InputRequired, NumberRange, length
+from wtforms.widgets import html5
 
 
 class FieldsRequiredForm(FlaskForm):
@@ -15,18 +16,19 @@ class FieldsRequiredForm(FlaskForm):
 
 
 class DiagnoseForm(FieldsRequiredForm):
-    age = IntegerField('Age', validators=[InputRequired(), NumberRange(min=1, max=140, message='Please enter a valid age')])
-    gender = RadioField('Label', choices=[(True, 'Male'), (False, 'Female')], validators=[InputRequired()])
+    age = IntegerField('Age',
+                       widget=html5.NumberInput(min=1, max=140),
+                       validators=[InputRequired()])
+    gender = RadioField('Label',
+                        choices=[(True, 'Male'),
+                                 (False, 'Female')],
+                        validators=[InputRequired()])
     polyuria = BooleanField('Polyuria')
     polydipsia = BooleanField('Polydipsia')
     sudden_wl = BooleanField('Sudden Weight Loss')
-    weakness = BooleanField('Weakness')
-    polyphagia = BooleanField('Polyphagia')
     genital_thrush = BooleanField('Gential Thrush')
-    itching = BooleanField('Itching')
     irritability = BooleanField('Irritability')
     delayed_healing = BooleanField('Delayed Healing')
-    partial_paresis = BooleanField('Partial Paresis')
     muscle_stiffness = BooleanField('Muscle Stiffness')
     alopecia = BooleanField('Alopecia')
     obesity = BooleanField('Obesity')

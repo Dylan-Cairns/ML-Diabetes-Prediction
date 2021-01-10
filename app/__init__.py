@@ -19,6 +19,7 @@ def init_app():
         return app
 
 
-# load machine learning model
-model = pickle.load(open('app/static/rf_model.pkl', 'rb'))
+# load machine learning models
+rf_model = pickle.load(open('app/data/rf_model.pkl', 'rb'))
+dt_model = pickle.load(open('app/data/decision_tree.pkl', 'rb'))
 

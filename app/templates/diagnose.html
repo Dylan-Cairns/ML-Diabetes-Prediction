@@ -10,8 +10,13 @@
         <form action="" id="diagnosis-form" method="post">
             {{ form.hidden_tag() }}
             <div class="row">
+                <div class="form-check mb-4 col-md-2">
+                    {{ form.age.label(class_="visually-hidden") }}
+                    {{ form.age(class_="form-control", placeholder="Age") }}
+                </div>
+                <div class="form-check mb-4 col-md-1"></div>
                 {% for subfield in form.gender %}
-                <div class="form-check mb-4 col-sm-3">
+                <div class="form-check mb-4 col-sm-1">
                     {{ subfield(class_="form-check-input") }}
                     {{ subfield.label(class_="form-check-label") }}
                 </div>
@@ -24,6 +29,7 @@
                     {% endfor %}
                 </ul>
                 {% endif %}
+                <div class="form-check mb-4 col-md-4"></div>
             </div>
             <div class="row">
                 <div class="form-check mb-4 col-md-3">
@@ -39,27 +45,10 @@
                     {{ form.sudden_wl.label(class_="form-check-label") }}
                 </div>
                 <div class="form-check mb-4 col-md-3">
-                    {{ form.weakness(class_="form-check-input") }}
-                    {{ form.weakness.label(class_="form-check-label") }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-check mb-4 col-md-3">
-                    {{ form.polyphagia(class_="form-check-input") }}
-                    {{ form.polyphagia.label(class_="form-check-label") }}
-                </div>
-                <div class="form-check mb-4 col-md-3">
                     {{ form.genital_thrush(class_="form-check-input") }}
                     {{ form.genital_thrush.label(class_="form-check-label") }}
                 </div>
-                <div class="form-check mb-4 col-md-3">
-                    {{ form.visual_blurring(class_="form-check-input") }}
-                    {{ form.visual_blurring.label(class_="form-check-label") }}
-                </div>
-                <div class="form-check mb-4 col-md-3">
-                    {{ form.itching(class_="form-check-input") }}
-                    {{ form.itching.label(class_="form-check-label") }}
-                </div>
+
             </div>
             <div class="row">
                 <div class="form-check mb-4 col-md-3">
@@ -71,19 +60,16 @@
                     {{ form.delayed_healing.label(class_="form-check-label") }}
                 </div>
                 <div class="form-check mb-4 col-md-3">
-                    {{ form.partial_paresis(class_="form-check-input") }}
-                    {{ form.partial_paresis.label(class_="form-check-label") }}
-                </div>
-                <div class="form-check mb-4 col-md-3">
                     {{ form.muscle_stiffness(class_="form-check-input") }}
                     {{ form.muscle_stiffness.label(class_="form-check-label") }}
                 </div>
-            </div>
-            <div class="row">
                 <div class="form-check mb-4 col-md-3">
                     {{ form.alopecia(class_="form-check-input") }}
                     {{ form.alopecia.label(class_="form-check-label") }}
                 </div>
+
+            </div>
+            <div class="row">
                 <div class="form-check mb-4 col-md-3">
                     {{ form.obesity(class_="form-check-input") }}
                     {{ form.obesity.label(class_="form-check-label") }}
@@ -103,8 +89,6 @@
         <br>
 
         <div class="alert alert-primary shadow" id="diagnosis-result" role="alert"></div>
-
-
 
     </div>
 </div>

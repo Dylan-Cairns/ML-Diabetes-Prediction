@@ -1,6 +1,6 @@
-from flask import render_template, flash, Markup, request, current_app as app, jsonify
+from flask import render_template, current_app as app, jsonify
 import numpy
-from app import model
+from app import rf_model
 from app.forms import DiagnoseForm
 
 
@@ -21,14 +21,16 @@ def diagnose():
 def diagnosis():
     form = DiagnoseForm()
     if form.validate_on_submit():
-        formDict = form.data
-        formDict.pop('csrf_token')
-        formDict['gender'] = (formDict['gender'] == 'True') # Convert string to boolean
-        features = list(formDict.values()) # create list to pass as argument to prediction function
+        form_dict = form.data
+        form_dict.pop('csrf_token')
+        form_dict.pop('submit')
+        form_dict['gender'] = (form_dict['gender'] == 'True')  # Convert string to boolean
+        print(str(form_dict))
+        features = list(form_dict.values())  # create list to pass as argument to prediction function
         print(features)
-        print(model.predict(*features))
-        prediction = 'Positive' if model.predict(*features) else 'Negative' # Convert boolean result to string
-        accuracy = "{:.2f}".format(round((numpy.max(model.predict_proba(*features)) / 1), 2))
+        print(rf_model.predict([features]))
+        prediction = 'Positive' if rf_model.predict([features]) else 'Negative' # Convert boolean result to string
+        accuracy = "{:.2f}".format(round((numpy.max(rf_model.predict_proba([features])) / 1), 2))
         results = {'prediction': prediction,
                    'accuracy': accuracy}
         return results
