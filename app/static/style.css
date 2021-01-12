@@ -2,6 +2,10 @@
   background: #eee;
 }
 
+#content {
+  max-width: 1080px;
+}
+
 #jumbotron {
   background-image: url('static/ai_background.jpeg');
   background-size: auto 200px;

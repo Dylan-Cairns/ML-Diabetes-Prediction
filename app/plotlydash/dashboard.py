@@ -6,12 +6,10 @@ import dash_table
 import dash_html_components as html
 import dash_core_components as dcc
 import plotly.graph_objects as go
-import plotly.figure_factory as ff
-import plotly.io as pio
 import plotly.express as px
 from .data import create_dataframe
 from .layout import html_layout
-from .. import rf_model, dt_model
+from .. import rf_model
 
 
 
@@ -32,23 +30,29 @@ def init_dashboard(server):
     # Create feature importance bar chart
     feature_importance = pd.Series(rf_model.feature_importances_*100,
                                    index=df.columns[:-1]).sort_values(ascending=False)
-    feat_import_fig = px.bar(feature_importance,
-                             labels={'value': 'Importance', 'index': 'Features'})
-    feat_import_fig.layout.update(showlegend=False)
+    feat_importance_fig = px.bar(feature_importance,
+                                 labels={'value': 'Importance', 'index': 'Features'})
+    feat_importance_fig.layout.update(showlegend=False)
 
     # Create age/feature scatter plot
     x_graph = df[df['class'] == True]['Age'].value_counts().index
-    x_graph2 = x_graph
     y_graph = df[df['class'] == True]['Age'].value_counts().values
-    fig_compare = go.Figure()
-    fig_compare.add_trace(go.Scatter(x=x_graph, y=y_graph,
-                             mode='markers',
-                             name='Diabetes'))
+    age_scatter_fig = go.Figure()
+    age_scatter_fig.add_trace(go.Scatter(x=x_graph, y=y_graph,
+                                         mode='markers',
+                                         name='Diabetes',
+                                         marker={"size": 12, "color": 'blue'}))
     x_graphb = df[df['Polyuria'] == True]['Age'].value_counts().index
     y_graphb = df[df['Polyuria'] == True]['Age'].value_counts().values
-    fig_compare.add_trace(go.Scatter(x=x_graphb, y=y_graphb,
-                             mode='markers',
-                             name='Polyuria'))
+    age_scatter_fig.add_trace(go.Scatter(x=x_graphb, y=y_graphb,
+                                         mode='markers',
+                                         name='Polyuria',
+                                         marker={"size": 12, "color": 'MediumPurple'}))
+    age_scatter_fig.update_layout(
+        xaxis_title="Age",
+        yaxis_title="Number of Patients",
+        legend_title="Condition",
+        )
 
     # Custom HTML layout
     dash_app.index_string = html_layout
@@ -56,9 +60,19 @@ def init_dashboard(server):
     # Create Layout
     dash_app.layout = html.Div(
         children=[
+            html.Br(),
+            html.H5(children="Feature heatMap", className="lh-1"),
             dcc.Graph(figure=feature_heatmap_fig),
-            dcc.Graph(figure=feat_import_fig),
-            dcc.Graph(figure=fig_compare),
+            html.Br(),
+            html.H5(children="Machine learning feature importance", className="lh-1"),
+            dcc.Graph(figure=feat_importance_fig),
+            html.Br(),
+            html.H5(children="Age distribution", className="lh-1"),
+            dcc.Graph(figure=age_scatter_fig),
+            html.Br(),
+            html.H5(children="Dataset browser", className="lh-1"),
+            html.Br(),
+            html.Br(),
             create_data_table(df),
         ],
         id='dash-container'

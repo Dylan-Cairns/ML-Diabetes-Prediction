@@ -45,7 +45,7 @@ html_layout = """
     </div>
 </nav>
 <main role="main" class="flex-shrink-0">
-    <div class="container shadow rounded fadeIn p-5 my-5 bg-white">
+    <div class="container shadow rounded fadeIn p-5 my-5 bg-white" id="content">
 
     <h2> Data Visualization </h2>
     <br>
