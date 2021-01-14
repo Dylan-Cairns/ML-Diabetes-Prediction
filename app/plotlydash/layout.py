@@ -17,6 +17,9 @@ html_layout = """
     <link rel="stylesheet" href="/static/dashstyles.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/static/style.css">
+
+    <!-- bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" async integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <title>Data + Visualizations</title>
 </head>
 <body class="d-flex flex-column h-100 body">
@@ -54,14 +57,14 @@ html_layout = """
     </div>
     <br><br>
 </main>
-<footer class="footer mt-auto py-3">
+<footer class="footer mt-auto py-3 text-white">
     <div class="container">
         <div class="d-flex justify-content-between">
             <div>
-                <span class="text-muted small">Dylan Cairns 2020</span>
+                <span class="small">Dylan Cairns 2020</span>
             </div>
             <div class>
-                <a class="text-muted text-decoration-none small" href="https://github.com/">View the source on Github <i class="fa fa-github"></i></a>
+                <a class="text-decoration-none" href="https://github.com/">View the source on Github <i class="fa fa-github"></i></a>
             </div>
         </div>
     </div>
@@ -70,9 +73,6 @@ html_layout = """
                 {%renderer%}
 </footer>
 </div></div>
-<!-- bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-
 </body>
 </html>
 """

@@ -4,9 +4,13 @@ from app import rf_model
 from app.forms import DiagnoseForm
 
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/", methods=['GET'])
 def home():
     return render_template("home.html", title='Home')
+
+@app.route("/trytry", methods=['GET'])
+def trytry():
+    return render_template("trytry.html", title='trytry')
 
 
 @app.route("/diagnose", methods=['GET'])
