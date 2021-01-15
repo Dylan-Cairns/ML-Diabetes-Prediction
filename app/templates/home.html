@@ -3,18 +3,12 @@
 {% set active_page = "home" %}
 
 {% block content %}
-<div class="container-fluid p-0 m-0">
-<div class="container-fluid p-0 m-0">
-    <div class="jumbotron text-white bg-transparent" id="jumbotron" style="background-image: url('static/ai_background_transBLABLA.jpg'); background-size: auto 100%; background-repeat: no-repeat;">
-    <div class="container fadeIn bg-transparent">
-        <br><br><br>
-        <h3 class="display-3">Machine Learning Early Detection Diabetes Prediction</h3>
-        <p>This site offers an example of using a machine learning model to provide a quick prediction of diabetes diagnosis.</p>
-        <br>
+    <div class="jumbotron text-white bg-transparent m-4" id="jumbotron" style="background-image: url('static/ai_background_transBLABLA.jpg'); background-size: auto 100%; background-repeat: no-repeat;">
+        <div class="container fadeIn bg-transparent">
+            <h3 class="display-3">Machine Learning Early Detection Diabetes Prediction</h3>
+            This site offers an example of using a machine learning model to provide a quick prediction of diabetes diagnosis.
+        </div>
     </div>
-</div>
-</div>
-</div>
 
 <div class="album py-5">
     <div class="container">
@@ -22,7 +16,10 @@
         <div class="row">
             <div class="col-md-4 fadeInUp">
                 <div class="card mb-4 shadow">
-                    <div class="card-body">
+                    <div class="d-flex justify-content-center text-muted mt-4">
+                        <span class="fa fa-flask fa-5x"></span>
+                    </div>
+                    <div class="card-body text-center">
                         <h4>Make a prediction</h4>
                         <p> Make a prediction utilizing a trained machine learning model. </p>
                         <p><a class="btn btn-secondary" href="{{ url_for('diagnose') }}" role="button">View details &raquo;</a></p>
@@ -30,7 +27,10 @@
                 </div></div>
             <div class="col-md-4 fadeInUp first">
                 <div class="card mb-4 shadow">
-                    <div class="card-body">
+                    <div class="d-flex justify-content-center text-muted mt-4">
+                        <span class="fa fa-bar-chart fa-5x"></span>
+                    </div>
+                    <div class="card-body text-center">
                         <h4>View the data</h4>
                         <p>View the data used to train the model, as well as relevant visualizations </p>
                         <p><a class="btn btn-secondary" href="/dashapp/" role="button">View details &raquo;</a></p>
@@ -38,7 +38,10 @@
                 </div></div>
             <div class="col-md-4 fadeInUp second">
                 <div class="card mb-4 shadow">
-                    <div class="card-body">
+                    <div class="d-flex justify-content-center text-muted mt-4">
+                        <span class="fa fa-file-text-o fa-5x"></span>
+                    </div>
+                    <div class="card-body text-center">
                         <h4>Learn how it was made</h4>
                         <p>Read a summary of the process used to train the machine learning model.</p>
                         <p><a class="btn btn-secondary" href="{{ url_for('about') }}" role="button">View details &raquo;</a></p>

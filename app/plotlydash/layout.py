@@ -23,7 +23,8 @@ html_layout = """
     <title>Data + Visualizations</title>
 </head>
 <body class="d-flex flex-column h-100 body">
-<div style="background-color: #000207"><div style="background-image: url('../static/ai_background_trans.jpg'); background-size: 100% auto; background-position: right top; background-repeat: repeat;">
+<div class="parallax-back"></div>
+<div class="container-fluid parallax-front">
 <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
     <div class="container">
         <a class="navbar-brand" href="#"><span class="fa fa-medkit"></span> ML Diabetes Diagnosis</a>
@@ -55,16 +56,15 @@ html_layout = """
     <br>
             {%app_entry%}
     </div>
-    <br><br>
 </main>
 <footer class="footer mt-auto py-3 text-white">
     <div class="container">
         <div class="d-flex justify-content-between">
             <div>
-                <span class="small">Dylan Cairns 2020</span>
+                <span class="text-white small">Dylan Cairns 2020</span>
             </div>
             <div class>
-                <a class="text-decoration-none" href="https://github.com/">View the source on Github <i class="fa fa-github"></i></a>
+                <a class="text-white text-decoration-none" href="https://github.com/">View the source on Github <i class="fa fa-github"></i></a>
             </div>
         </div>
     </div>
@@ -72,7 +72,7 @@ html_layout = """
                 {%scripts%}
                 {%renderer%}
 </footer>
-</div></div>
+</div>
 </body>
 </html>
 """

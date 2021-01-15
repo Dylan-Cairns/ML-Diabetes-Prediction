@@ -8,10 +8,6 @@ from app.forms import DiagnoseForm
 def home():
     return render_template("home.html", title='Home')
 
-@app.route("/trytry", methods=['GET'])
-def trytry():
-    return render_template("trytry.html", title='trytry')
-
 
 @app.route("/diagnose", methods=['GET'])
 def diagnose():
