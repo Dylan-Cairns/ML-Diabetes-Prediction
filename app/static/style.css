@@ -115,3 +115,13 @@ body {
     left: 50%;
     transform: translate(-50%, 0);
 }
+
+/* Homepage Icon Shine Effect */
+.icons:hover:after {
+  width: 120%;
+  background-color: rgba(255,255,255,0);
+
+	-webkit-transition: all 0.4s ease-in-out;
+	   -moz-transition: all 0.4s ease-in-out;
+	        transition: all 0.4s ease-in-out;
+}
