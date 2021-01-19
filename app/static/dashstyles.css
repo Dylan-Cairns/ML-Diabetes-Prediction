@@ -1,0 +1,191 @@
+.row .col {
+    padding: 0!important;
+}
+
+@media(max-width:800px) {
+    .home-template .card {
+    max-width: 78%;
+    width: unset;
+    padding: 40px;
+}
+}
+
+#_dash-app-content {
+    max-width: 95%!important;
+    margin: 90px auto!important;
+    overflow: hidden;
+}
+
+.dash-spreadsheet-container {
+    max-width: 100%;
+    margin: 0 auto 20px!important;
+    overflow: hidden;
+    border: 0;
+    border-radius: 4px;
+    box-shadow: 0 0 4px #cdd3e2;
+    font-family: 'Lato', sans-serif;
+}
+
+.dash-spreadsheet-container * {
+    box-shadow: none!important;
+    font-family: Lato, sans-serif;
+}
+
+.dash-spreadsheet-container th, .dash-spreadsheet-container tr {
+    box-shadow: none!important;
+}
+
+.dash-spreadsheet-container td:first-of-type, .dash-spreadsheet-container tr:first-of-type {
+    width: 55px;
+}
+
+.dash-spreadsheet-container td:last-of-type, .dash-spreadsheet-container tr:last-of-type {
+    width: 100px;
+}
+
+.dash-spreadsheet-container th {
+    padding: 25px 12px!important;
+    border-top: 0!important;
+    border-right: 0!important;
+    border-bottom: 1px solid #e5e7eb!important;
+    border-left: 0!important;
+    background: white!important;
+    color: #404552;
+}
+
+.dash-spreadsheet-container th .column-header--sort {
+    margin-right: 7px;
+    transition: all .2s ease-out;
+}
+
+.dash-spreadsheet-container th .column-header--sort:hover {
+    color: #9bd2eb!important;
+}
+
+.dash-spreadsheet-container th .column-header--sort svg {
+    width: .5em;
+}
+
+.dash-spreadsheet-container th .sort {
+    order: 2;
+    color: #aeaeae!important;
+    transition: all .3s ease-out;
+}
+
+.dash-spreadsheet-container th .sort:hover {
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .7;
+}
+
+.dash-spreadsheet-container th>div {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+
+.dash-spreadsheet-container th>div span:last-of-type {
+    font-size: .8em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.dash-spreadsheet-container td {
+    padding: 12px!important;
+    font-size: .95em;
+    text-align: left!important;
+}
+
+.dash-spreadsheet-container td:first-of-type, .dash-spreadsheet-container td:last-of-type {
+    max-width: 50px!important;
+}
+
+.dash-spreadsheet-container td .dash-cell-value {
+    display: block!important;
+    max-width: 500px;
+    overflow: hidden!important;
+    font-size: 1.2em;
+    font-weight: 300;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    opacity: .8;
+}
+
+.dash-spreadsheet-container td[data-dash-column="command"], .dash-spreadsheet-container .column-1 {
+    max-width: 200px!important;
+}
+
+.dash-spreadsheet-container td[data-dash-column="index"] {
+    text-align: center!important;
+}
+
+.dash-spreadsheet-container td[data-dash-column="index"] div {
+    text-align: center!important;
+}
+
+.dash-spreadsheet-container td[data-dash-column="index"] {
+    color: #939da4;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.dash-spreadsheet-container tr:nth-child(even) {
+    background: #f5f8fc!important;
+}
+
+table tbody {
+    box-shadow: 0 0 7px #bdbdd2!important;
+}
+
+table tbody tr {
+    border: 0!important;
+}
+
+table tbody tr:nth-child(even) {
+    background: #e7eefa!important;
+}
+
+table tbody tr td {
+    padding: 12px 10px!important;
+    overflow: hidden!important;
+    border: 0!important;
+    font-size: .65em!important;
+    line-height: 1.25!important;
+    text-align: center!important;
+}
+
+.dash-spreadsheet-container .dash-spreadsheet-inner td.focused {
+    background-color: rgba(154, 212, 255, 0.2)!important;
+    box-shadow: 0 0 4px #cdd3e2;
+}
+
+.dash-spreadsheet-container .dash-spreadsheet-inner td .input-cell-value-shadow {
+    width: 100%}
+
+.dash-spreadsheet-container .dash-spreadsheet-inner td input.dash-cell-value.unfocused {
+    caret-color: #317ed1!important;
+}
+
+.dash-spreadsheet-inner .input-active {
+    overflow: visible!important;
+    color: #829ab2;
+    text-align: left!important;
+}
+
+.dash-spreadsheet-inner input::placeholder {
+    color: grey;
+}
+
+#histogram-graph {
+    margin-bottom: 30px;
+    padding-bottom: 176px!important;
+    overflow: hidden;
+    border-radius: 4px;
+    background: white;
+    box-shadow: 0 0 4px #cdd3e2;
+}
+
+.main-svg {
+    overflow: visible!important;
+}
