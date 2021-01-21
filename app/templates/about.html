@@ -4,90 +4,66 @@
 
 {% block content %}
 <div class="container shadow rounded fadeIn p-5 my-5 bg-white" id="content">
-    <h2> About Flask </h2>
+    <h2> Training a Machine Learning Model to Predict Diabetes Diagnosis </h2>
+    <br><br>
+    <h4>Cleaning and Transforming the Data</h4><br>
+    <p>This project utilizes machine learning to provide a prediction of a patients diabetes diagnosis status based on the answers of a questionnaire regarding a number of related symptoms. The data used to train the model is obtained from the University of California Irving Machine Learning Repositories. The official site hosting the data can be found at <a href='https://archive.ics.uci.edu/ml/datasets/Early+stage+diabetes+risk+prediction+dataset' target='_blank' class='url'>https://archive.ics.uci.edu/ml/datasets/Early+stage+diabetes+risk+prediction+dataset</a>.</p>
+    <p>The first step necessary is to clean and transform the data in a way that it can be easily read by our machine learning model. Here is what the first 5 lines of the data look like before any modifications:</p>
+    <br><br>
+    <div class="scrollme"><figure><table class="table table-hover">
+        <thead>
+        <tr><th>Age</th><th>Gender</th><th>Polyuria</th><th>Polydipsia</th><th>sudden weight loss</th><th>weakness</th><th>Polyphagia</th><th>Genital thrush</th><th>visual blurring</th><th>Itching</th><th>Irritability</th><th>delayed healing</th><th>partial paresis</th><th>muscle stiffness</th><th>Alopecia</th><th>Obesity</th><th>class</th></tr></thead>
+        <tbody><tr><td>40</td><td>Male</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Positive</td></tr><tr><td>58</td><td>Male</td><td>No</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td><td>No</td><td>Positive</td></tr><tr><td>41</td><td>Male</td><td>Yes</td><td>No</td><td>No</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>No</td><td>Positive</td></tr><tr><td>45</td><td>Male</td><td>No</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td><td>Positive</td></tr><tr><td>60</td><td>Male</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Positive</td></tr></tbody>
+    </table></figure></div><br><br>
+    <p>&#39;Male/Female&#39; fields as well as &#39;Yes/No&#39; fields will be replaced with binary True and False in order to be understood by our machine learning model. After these transformations the data now looks like this:</p>
+    <br><br>
+    <div class="scrollme"><figure><table class="table table-hover">
+        <thead>
+        <tr><th>Age</th><th>Gender</th><th>Polyuria</th><th>Polydipsia</th><th>sudden weight loss</th><th>weakness</th><th>Polyphagia</th><th>Genital thrush</th><th>visual blurring</th><th>Itching</th><th>Irritability</th><th>delayed healing</th><th>partial paresis</th><th>muscle stiffness</th><th>Alopecia</th><th>Obesity</th><th>class</th></tr></thead>
+        <tbody><tr><td>40</td><td>True</td><td>False</td><td>True</td><td>False</td><td>True</td><td>False</td><td>False</td><td>False</td><td>True</td><td>False</td><td>True</td><td>False</td><td>True</td><td>True</td><td>True</td><td>True</td></tr><tr><td>58</td><td>True</td><td>False</td><td>False</td><td>False</td><td>True</td><td>False</td><td>False</td><td>True</td><td>False</td><td>False</td><td>False</td><td>True</td><td>False</td><td>True</td><td>False</td><td>True</td></tr><tr><td>41</td><td>True</td><td>True</td><td>False</td><td>False</td><td>True</td><td>True</td><td>False</td><td>False</td><td>True</td><td>False</td><td>True</td><td>False</td><td>True</td><td>True</td><td>False</td><td>True</td></tr><tr><td>45</td><td>True</td><td>False</td><td>False</td><td>True</td><td>True</td><td>True</td><td>True</td><td>False</td><td>True</td><td>False</td><td>True</td><td>False</td><td>False</td><td>False</td><td>False</td><td>True</td></tr><tr><td>60</td><td>True</td><td>True</td><td>True</td><td>True</td><td>True</td><td>True</td><td>False</td><td>True</td><td>True</td><td>True</td><td>True</td><td>True</td><td>True</td><td>True</td><td>True</td><td>True</td></tr></tbody>
+    </table></figure></div><br><br>
+    <p>Now we can generate a confusion matrix (or heatmap) to visualize the relationship between different symptoms. We can see from the confusion matrix that the conditions polyuria and polydipsia are the most strongly correlated to a positive diabetes diagnosis. We can expect that they will an important factor in any machine learning models prediction.</p>
     <br>
-    <p> Flask is a micro web framework written in Python.</p>
-    <p> Applications that use the Flask framework include Pinterest,
-        LinkedIn, and the community web page for Flask itself.</p>
-    <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores harum veritatis
-                nemo magni odio reprehenderit atque, esse animi porro suscipit vero nobis modi quis.
-                Exercitationem quasi beatae, assumenda officia illum sunt. Cum voluptas maiores
-                vitae eius hic inventore deleniti placeat perferendis quam ut nostrum maxime optio
-                voluptatibus ab laboriosam, quia consectetur atque minus? Adipisci amet aut sint
-                voluptates delectus aperiam? Veniam ab illum enim in libero nihil culpa explicabo
-                perspiciatis veritatis non repellendus architecto excepturi nostrum porro voluptatem
-                aperiam animi asperiores, a voluptatibus temporibus minima voluptas ipsa! Recusandae
-                nostrum, aut, voluptates est error iusto, eaque excepturi soluta quas maiores amet.
-            </p>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum perferendis error
-                debitis deleniti obcaecati nisi dignissimos doloribus omnis incidunt neque.
-                Aspernatur, odit. Natus, porro adipisci corporis perspiciatis aspernatur illum
-                repellendus vitae explicabo, ex reiciendis molestiae id dicta quos repudiandae at.
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores harum veritatis
-                nemo magni odio reprehenderit atque, esse animi porro suscipit vero nobis modi quis.
-                Exercitationem quasi beatae, assumenda officia illum sunt. Cum voluptas maiores
-                vitae eius hic inventore deleniti placeat perferendis quam ut nostrum maxime optio
-                voluptatibus ab laboriosam, quia consectetur atque minus? Adipisci amet aut sint
-                voluptates delectus aperiam? Veniam ab illum enim in libero nihil culpa explicabo
-                perspiciatis veritatis non repellendus architecto excepturi nostrum porro voluptatem
-                aperiam animi asperiores, a voluptatibus temporibus minima voluptas ipsa! Recusandae
-                nostrum, aut, voluptates est error iusto, eaque excepturi soluta quas maiores amet.
-            </p>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum perferendis error
-                debitis deleniti obcaecati nisi dignissimos doloribus omnis incidunt neque.
-                Aspernatur, odit. Natus, porro adipisci corporis perspiciatis aspernatur illum
-                repellendus vitae explicabo, ex reiciendis molestiae id dicta quos repudiandae at.
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores harum veritatis
-                nemo magni odio reprehenderit atque, esse animi porro suscipit vero nobis modi quis.
-                Exercitationem quasi beatae, asd officia illum sunt. Cum voluptas maiores
-                vitae eius hic inventore deleniti placeat perferendis quam ut nostrum maxime optio
-                voluptatibus ab laboriosam, quia ploplopl atque minus? Adipisci amet aut sint
-                voluptates delectus aperiam? Veniam ab illum enim in libero nihil culpa explicabo
-                perspiciatis veritatis non repellendus architecto excepturi nostrum porro voluptatem
-                aperiam animi asperiores, a voluptatibus temporibus minima voluptas ipsa! Recusandae
-                nostrum, aut, voluptates est error iusto, eaque excepturi soluta quas maiores amet.
-            </p>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum perferendis error
-                debitis deleniti obcaecati nisi dignissimos doloribus omnis incidunt neque.
-                Aspernatur, odit. Natus, porro adipisci corporis perspiciatis aspernatur illum
-                repellendus vitae explicabo, ex reiciendis molestiae id dicta quos repudiandae at.
-            </p>
-    <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores harum veritatis
-                nemo magni odio reprehenderit atque, esse animi porro suscipit vero nobis modi quis.
-                Exercitationem quasi beatae, assumenda officia illum sunt. Cum voluptas maiores
-                vitae eius hic inventore deleniti placeat perferendis quam ut nostrum maxime optio
-                voluptatibus ab laboriosam, quia consectetur atque minus? Adipisci amet aut sint
-                voluptates delectus aperiam? Veniam ab illum enim in libero nihil culpa explicabo
-                perspiciatis veritatis non repellendus architecto excepturi nostrum porro voluptatem
-                aperiam animi asperiores, a voluptatibus temporibus minima voluptas ipsa! Recusandae
-                nostrum, aut, voluptates est error iusto, eaque excepturi soluta quas maiores amet.
-            </p>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum perferendis error
-                debitis deleniti obcaecati nisi dignissimos doloribus omnis incidunt neque.
-                Aspernatur, odit. Natus, porro adipisci corporis perspiciatis aspernatur illum
-                repellendus vitae explicabo, ex reiciendis molestiae id dicta quos repudiandae at.
-            </p>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores harum veritatis
-                nemo magni odio reprehenderit atque, esse animi porro suscipit vero nobis modi quis.
-                Exercitationem quasi beatae, assumenda officia illum sunt. Cum voluptas maiores
-                vitae eius hic inventore deleniti placeat perferendis quam ut nostrum maxime optio
-                voluptatibus ab laboriosam, quia consectetur atque minus? Adipisci amet aut sint
-                voluptates delectus aperiam? Veniam ab illum enim in libero nihil culpa explicabo
-                perspiciatis veritatis non repellendus architecto excepturi nostrum porro voluptatem
-                aperiam animi asperiores, a voluptatibus temporibus minima voluptas ipsa! Recusandae
-                nostrum, aut, voluptates est error iusto, eaque excepturi soluta quas maiores amet.
-            </p>
+    <div class="text-center"><img src="{{ url_for('static',     filename='confusion_matrix.png') }}"/></div>
+    <p>&nbsp;</p><br>
+    <h4>Pruning Data Features</h4><br>
+    <p>The next step will be to use a machine learning model called a <em>decision tree classifier</em> to help select the most important features  (which in this case represent symptoms) from the dataset. After training the decision tree classifier on the model, the following graph of feature importance is created.</p>
+    <br><br>
+    <div class="text-center"><img src="{{ url_for('static',     filename='feature_bar_graph.png') }}"/></div>
+    <br>
+    <p>Next we will use a process called <em>recursive feature elimination with cross-validation</em> in order to automatically select the most important features to retain from out dataset, based on the assessments made earlier by the decision tree classifier. After this process is complete, our features are reduced from 17 to 11. Here is what the dataset looks like after feature pruning:</p>
+    <br>
+    <div class="scrollme"><figure><table class="table table-hover">
+        <thead>
+        <tr><th>Age</th><th>Gender</th><th>Polyuria</th><th>Polydipsia</th><th>sudden weight loss</th><th>Genital thrush</th><th>Irritability</th><th>delayed healing</th><th>muscle stiffness</th><th>Alopecia</th><th>Obesity</th><th>class</th></tr></thead>
+        <tbody><tr><td>40</td><td>True</td><td>False</td><td>True</td><td>False</td><td>False</td><td>False</td><td>True</td><td>True</td><td>True</td><td>True</td><td>True</td></tr><tr><td>58</td><td>True</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>False</td><td>True</td><td>False</td><td>True</td></tr><tr><td>41</td><td>True</td><td>True</td><td>False</td><td>False</td><td>False</td><td>False</td><td>True</td><td>True</td><td>True</td><td>False</td><td>True</td></tr><tr><td>45</td><td>True</td><td>False</td><td>False</td><td>True</td><td>True</td><td>False</td><td>True</td><td>False</td><td>False</td><td>False</td><td>True</td></tr><tr><td>60</td><td>True</td><td>True</td><td>True</td><td>True</td><td>False</td><td>True</td><td>True</td><td>True</td><td>True</td><td>True</td><td>True</td></tr></tbody>
+    </table></figure></div><br><br>
+    <h4>Choosing a Machine Learning Model</h4><br>
+    <p>Now that the data is prepared, it&#39;s time to choose a machine learning model with which to make predictions and build our application. We will fit, train, and compare the accuracy of 3 potential models: <em>K nearest neighbors classifier</em>, a <em>logistic regression classifier</em>, and a <em>random forest classifier</em>. After fitting and training these 3 models, a 5 fold cross validation will be used to compare their results. The results can be seen in the graph below.</p>
+    <br><br><div class="text-center"><img src="{{ url_for('static',     filename='model_comparison.png') }}"/></div>
+    <br><p>As can be seen from the graph, the random forest classifier performs highest in accuracy, precision, and recall. This will be our choice of model to base our web application on.</p>
+    <br><h4>Tuning Hyper-parameters</h4><br>
+    <p>Next we will attempt to tune the hyper-parameters of our machine learning model. We will create a grid containing a number of potential parameters for our model. Below is the code for our python grid object:</p>
+    <br><br>
+    <pre><code>{&#39;n_estimators&#39;: [200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000],
+ &#39;max_features&#39;: [&#39;auto&#39;, &#39;sqrt&#39;],
+ &#39;max_depth&#39;: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, None],
+ &#39;min_samples_split&#39;: [2, 5, 10],
+ &#39;min_samples_leaf&#39;: [1, 2, 4],
+ &#39;bootstrap&#39;: [True, False]}
+</code></pre><br><br>
+    <p>After using randomized search to attempt to find the best hyper-parameters from the given options, we compare the adjusted model to the random forest classifier without hyper-parameters tuned, as well as to the logistic regression model for good measure. As can be seen from the graph below, the adjustment of hyper-parameters actually resulted in worse performance. Thus our final selection for our machine learning model is the original random forest classifier.</p>
+    <br><br><div class="text-center"><img src="{{ url_for('static',     filename='model_comparison_hyper.png') }}"/></div>
+    <br><br><h4>Assessing the models accuracy</h4><br>
+    <p>Finally we can review 3 metrics to asses the accuracy of the trained model: accuracy, precision, and recall.</p>
+    <div class="scrollme"><figure><table class="table table-hover">
+        <thead>
+        <tr><th>Random Forest Classifier</th><th>&nbsp;</th></tr></thead>
+        <tbody><tr><td>Accuracy</td><td>0.969</td></tr><tr><td>Precision</td><td>0.973</td></tr><tr><td>Recall</td><td>0.975</td></tr></tbody>
+    </table></figure></div><br>
+    <br><p>Although the model performs well on all 3 metrics, recall can be considered the metric of most importance in this particular application. Recall measures false negatives against true positives, and is of particular weight when dealing with medical issues, when it&#39;s very important to avoid false negatives.</p>
+    <br><br><h4>Deploying the trained model</h4><br>
+    <p>Now that the model is trained, all that&#39;s left is to deploy it to the web application.</p>
 </div>
 
 {% endblock %}

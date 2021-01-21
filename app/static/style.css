@@ -21,6 +21,10 @@ body {
     max-width: 1080px;
 }
 
+.scrollme {
+    overflow-x: auto;
+}
+
 /* hide result div initially, required for fade effects */
 #diagnosis-result { display:none; }
 
