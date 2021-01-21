@@ -23,9 +23,7 @@ html_layout = """
     <title>Data + Visualizations</title>
 </head>
 <body class="d-flex flex-column h-100 body">
-<div class="parallax-back"></div>
-<div class="container-fluid parallax-front">
-<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow">
     <div class="container">
         <a class="navbar-brand" href="#"><span class="fa fa-medkit"></span> ML Diabetes Diagnosis</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,7 +70,6 @@ html_layout = """
                 {%scripts%}
                 {%renderer%}
 </footer>
-</div>
 </body>
 </html>
 """

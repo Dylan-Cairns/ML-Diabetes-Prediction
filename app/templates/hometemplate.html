@@ -19,8 +19,9 @@
     {% endif %}
     <title>{{title}}</title>
 </head>
-<body class="d-flex flex-column h-100 body">
-{% include 'navbar.html' %}
+<body class="d-flex flex-column h-100 body" id="homepage">
+<div class="container-fluid" id="homepagebackground">
+{% include 'homenavbar.html' %}
 <main role="main" class="flex-shrink-0">
     {% block content %}
     {% endblock content %}
@@ -30,10 +31,10 @@
     <div class="container">
         <div class="d-flex justify-content-between">
             <div>
-                <span class="text-white small">Dylan Cairns 2020</span>
+                <span class="text-muted small">Dylan Cairns 2020</span>
             </div>
             <div class>
-                <a class="text-white text-decoration-none small" href="https://github.com/Dylan-Cairns/wgu-ml-diabetes-prediction">View the source on Github <i class="fa fa-github"></i></a>
+                <a class="text-muted text-decoration-none small" href="https://github.com/Dylan-Cairns/wgu-ml-diabetes-prediction">View the source on Github <i class="fa fa-github"></i></a>
             </div>
         </div>
     </div>

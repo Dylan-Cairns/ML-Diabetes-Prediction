@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, RadioField, IntegerField, SubmitField
-from wtforms.validators import InputRequired, NumberRange, length
+from wtforms.validators import InputRequired
 from wtforms.widgets import html5
 
 
