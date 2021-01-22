@@ -25,12 +25,12 @@
     </table></figure></div><br><br>
     <p>Now we can generate a confusion matrix (or heatmap) to visualize the relationship between different symptoms. We can see from the confusion matrix that the conditions polyuria and polydipsia are the most strongly correlated to a positive diabetes diagnosis. We can expect that they will be an important factor in any machine learning models prediction.</p>
     <br>
-    <div class="text-center"><img src="{{ url_for('static',     filename='confusion_matrix.png') }}"/></div>
+    <div class="text-center"><img class="img-fluid" src="{{ url_for('static',     filename='confusion_matrix.png') }}"/></div>
     <p>&nbsp;</p><br>
     <h4>Pruning Data Features</h4><br>
     <p>The next step will be to use a machine learning model called a <em>decision tree classifier</em> to help select the most important features  (which in this case represent symptoms) from the dataset. After training the decision tree classifier on the model, the following graph of feature importance is created.</p>
     <br><br>
-    <div class="text-center"><img src="{{ url_for('static',     filename='feature_bar_graph.png') }}"/></div>
+    <div class="text-center"><img class="img-fluid" src="{{ url_for('static',     filename='feature_bar_graph.png') }}"/></div>
     <br>
     <p>Next we will use a process called <em>recursive feature elimination with cross-validation</em> in order to automatically select the most important features to retain from out dataset, based on the assessments made earlier by the decision tree classifier. After this process is complete, our features are reduced from 17 to 11. Here is what the dataset looks like after feature pruning:</p>
     <br>
@@ -54,7 +54,7 @@
  &#39;bootstrap&#39;: [True, False]}
 </code></pre><br><br>
     <p>After using randomized search to attempt to find the best hyper-parameters from the given options, we compare the adjusted model to the random forest classifier without hyper-parameters tuned, as well as to the logistic regression model for good measure. As can be seen from the graph below, the adjustment of hyper-parameters actually resulted in worse performance. Thus our final selection for our machine learning model is the original random forest classifier.</p>
-    <br><br><div class="text-center"><img src="{{ url_for('static',     filename='model_comparison_hyper.png') }}"/></div>
+    <br><br><div class="text-center"><img class="img-fluid" src="{{ url_for('static',     filename='model_comparison_hyper.png') }}"/></div>
     <br><br><h4>Assessing the models accuracy</h4><br>
     <p>Finally we can review 3 metrics to asses the accuracy of the trained model: accuracy, precision, and recall.</p>
     <div class="scrollme"><figure><table class="table table-hover">

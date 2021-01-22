@@ -9,13 +9,13 @@ body {
 #homepagebackground {
     background: url(ai_background_trans.jpg);
     background-color: #7285a3;
-    background-size: auto 200%;
+    background-size: auto 100%;
     background-repeat: no-repeat;
 }
 
 @media only screen and (max-width: 600px) {
   #homepagebackground {
-    background-size: 100% auto;
+    background-size: 200% auto;
   }
 }
 
