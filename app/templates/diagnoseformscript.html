@@ -12,7 +12,7 @@
                 data: $('form').serialize(), // serializes the form's elements.
                 success: function (data) {
                   $('#diagnosis-result').fadeOut('fast', () => {
-                      $('#diagnosis-result').html("Prediction diagnoses: <strong>" + data.prediction + "</strong><br> Prediction accuracy: <strong>" + data.accuracy + "</strong>");
+                      $('#diagnosis-result').html("Prediction diagnosis: <strong>" + data.prediction + "</strong><br> Prediction accuracy: <strong>" + data.accuracy + "</strong>");
                   }).fadeIn('slow');
                 }
             });
