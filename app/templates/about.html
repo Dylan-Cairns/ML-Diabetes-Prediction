@@ -41,7 +41,7 @@
     </table></figure></div><br><br>
     <h4>Choosing a Machine Learning Model</h4><br>
     <p>Now that the data is prepared, it&#39;s time to choose a machine learning model with which to make predictions and build our application. We will fit, train, and compare the accuracy of 3 potential models: <em>K nearest neighbors classifier</em>, a <em>logistic regression classifier</em>, and a <em>random forest classifier</em>. After fitting and training these 3 models, a 5 fold cross validation will be used to compare their results. The results can be seen in the graph below.</p>
-    <br><br><div class="text-center"><img src="{{ url_for('static',     filename='model_comparison.png') }}"/></div>
+    <br><br><div class="text-center"><img class="img-fluid" src="{{ url_for('static',     filename='model_comparison.png') }}"/></div>
     <br><p>As can be seen from the graph, the random forest classifier performs highest in accuracy, precision, and recall. This will be our choice of model to base our web application on.</p>
     <br><h4>Tuning Hyper-parameters</h4><br>
     <p>Next we will attempt to tune the hyper-parameters of our machine learning model. We will create a grid containing a number of potential parameters for our model. Below is the code for our python grid object:</p>
