@@ -17,12 +17,14 @@ Technology used:
 - bootstrap
 - heroku
 
-Screenshots:
-
+### Screenshots
+Landing Page:
 ![Screenshot 1](/screenshots/appscreen1.png)
----
+Prediction functionality:
 ![Screenshot 2](/screenshots/appscreen2.png)
 ---
+![Screenshot 4](/screenshots/appscreen4.png)
+Data visualizations:
 ![Screenshot 3](/screenshots/appscreen3.png)
 ---
-![Screenshot 4](/screenshots/appscreen4.png)
+
