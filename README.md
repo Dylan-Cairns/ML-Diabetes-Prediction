@@ -1,4 +1,4 @@
-# ml-diabetes-prediction
+# Training a Machine Learning Model to Predict Diabetes Status and Deploying it to a Web Based Application
 
 This project utilizes machine learning to provide a prediction of a patients diabetes diagnosis status based on the answers of a questionnaire regarding a number of related symptoms. The trained machine learning model is then deployed to a flask based web application hosted on Heroku. An instance of the plotly dash platform integrated into the flask app to provide interactive data visualizations.
 
