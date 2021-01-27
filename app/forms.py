@@ -26,7 +26,7 @@ class DiagnoseForm(FieldsRequiredForm):
     polyuria = BooleanField('Polyuria')
     polydipsia = BooleanField('Polydipsia')
     sudden_wl = BooleanField('Sudden Weight Loss')
-    genital_thrush = BooleanField('Gential Thrush')
+    genital_thrush = BooleanField('Genital Thrush')
     irritability = BooleanField('Irritability')
     delayed_healing = BooleanField('Delayed Healing')
     muscle_stiffness = BooleanField('Muscle Stiffness')
